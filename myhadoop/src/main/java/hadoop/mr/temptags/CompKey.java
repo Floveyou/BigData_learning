@@ -1,7 +1,7 @@
 package hadoop.mr.temptags;
 
 /**
- * 组合 Key   包含自定义的排序规则
+ * 组合 Key  , 包含自定义的排序规则
  */
 public class CompKey implements Comparable<CompKey> {
 
