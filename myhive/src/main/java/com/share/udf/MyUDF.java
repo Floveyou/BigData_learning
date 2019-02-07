@@ -8,6 +8,7 @@ import org.apache.hadoop.hive.ql.exec.UDF;
         value = "this is a sum function",
         extended = "eg: select myudf(1,2) => 3 , select myudf(\"hello\",\"world\") => helloworld"
 )
+
 /**
  * 测试 UDF 函数的使用
  * user define function
