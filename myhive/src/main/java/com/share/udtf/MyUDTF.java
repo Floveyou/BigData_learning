@@ -74,6 +74,5 @@ public class MyUDTF extends GenericUDTF {
     // do nothing
     @Override
     public void close() throws HiveException {
-
     }
 }
