@@ -46,11 +46,11 @@ public class ParseEvent extends GenericUDTF {
         // 构造字段名,word
         List<String> fieldNames = new ArrayList<String>();
         fieldNames.add("deviceId");
-        fieldNames.add("logType");
         fieldNames.add("createdAtMs");
-        fieldNames.add("musicID");
         fieldNames.add("eventId");
+        fieldNames.add("logType");
         fieldNames.add("mark");
+        fieldNames.add("musicID");
 
         // 构造字段类型,string
         List<ObjectInspector> fieldOIs = new ArrayList<ObjectInspector>();
