@@ -5,6 +5,7 @@
       <list>
         <option value="$PROJECT_DIR$/myhadoop/pom.xml" />
         <option value="$PROJECT_DIR$/myhive/pom.xml" />
+        <option value="$PROJECT_DIR$/myhbase/pom.xml" />
       </list>
     </option>
   </component>

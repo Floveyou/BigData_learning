@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="myhadoop" />
+        <module name="myhbase" />
         <module name="myhive" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="myhadoop" target="1.5" />
+      <module name="myhbase" target="1.5" />
       <module name="myhive" target="1.5" />
     </bytecodeTargetLevel>
   </component>
