@@ -89,15 +89,15 @@ public class TestHbase {
         HTable table = (HTable) conn.getTable(TableName.valueOf("test:t1"));
 
         // 设置自动刷写为false
-        table.setAutoFlush(false,false);
+        table.setAutoFlush(false, false);
 
         long start = System.currentTimeMillis();
 
         // Bytes.toBytes(）可以将任意类型转换成字节数组
         Put put = new Put(Bytes.toBytes("row1"));
-        put.addColumn(Bytes.toBytes("f1"),Bytes.toBytes("name"),Bytes.toBytes("tom"));
-        put.addColumn(Bytes.toBytes("f1"),Bytes.toBytes("age"),Bytes.toBytes("18"));
-        put.addColumn(Bytes.toBytes("f1"),Bytes.toBytes("sex"),Bytes.toBytes("male"));
+        put.addColumn(Bytes.toBytes("f1"), Bytes.toBytes("name"), Bytes.toBytes("tom"));
+        put.addColumn(Bytes.toBytes("f1"), Bytes.toBytes("age"), Bytes.toBytes("18"));
+        put.addColumn(Bytes.toBytes("f1"), Bytes.toBytes("sex"), Bytes.toBytes("male"));
 
         table.put(put);
         table.close();
@@ -122,7 +122,7 @@ public class TestHbase {
         HTable table = (HTable) conn.getTable(TableName.valueOf("test:t1"));
 
         // 设置自动刷写为false
-        table.setAutoFlush(false,false);
+        table.setAutoFlush(false, false);
 
         // put列表
         List<Put> list = new LinkedList<Put>();
@@ -137,7 +137,7 @@ public class TestHbase {
             Put put = new Put(Bytes.toBytes("row" + str));
             // 跳过WAL写入
             //put.setDurability(Durability.SKIP_WAL);
-            put.addColumn(Bytes.toBytes("f1"), Bytes.toBytes("name"), Bytes.toBytes("tom"+i));
+            put.addColumn(Bytes.toBytes("f1"), Bytes.toBytes("name"), Bytes.toBytes("tom" + i));
             //put.addColumn(Bytes.toBytes("f2"), Bytes.toBytes("id"), Bytes.toBytes(str));
             put.addColumn(Bytes.toBytes("f1"), Bytes.toBytes("age"), Bytes.toBytes(df.format(i % 70)));
             list.add(put);
@@ -170,13 +170,13 @@ public class TestHbase {
         HTable table = (HTable) conn.getTable(TableName.valueOf("test:t1"));
 
         // 设置自动刷写为false
-        table.setAutoFlush(false,false);
+        table.setAutoFlush(false, false);
 
         long start = System.currentTimeMillis();
 
         // Bytes.toBytes(）可以将任意类型转换成字节数组
         Delete del = new Delete(Bytes.toBytes("row1"));
-        del.addColumn(Bytes.toBytes("f1"),Bytes.toBytes("name"));
+        del.addColumn(Bytes.toBytes("f1"), Bytes.toBytes("name"));
 
         table.delete(del);
 

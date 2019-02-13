@@ -81,6 +81,5 @@ public class TestScan {
                 System.out.println(row + "/" + cf + "/" + col + "/" + value);
             }
         }
-
     }
 }
