@@ -9,6 +9,7 @@ import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -121,7 +122,7 @@ public class TestScan {
         Iterator<Result> it = scanner.iterator();
 
         long start = System.currentTimeMillis();
-        while (it.hasNext()){
+        while (it.hasNext()) {
 
             List<Cell> cells = it.next().listCells();
 
@@ -136,6 +137,35 @@ public class TestScan {
             System.out.println("=========================================");
         }
         System.out.println(System.currentTimeMillis() - start);
+    }
+
+    /**
+     * 带缓存查询
+     */
+    @Test
+    public void cacheScan() throws IOException {
+        Configuration conf = HBaseConfiguration.create();
+        Connection conn = ConnectionFactory.createConnection(conf);
+        Table t = conn.getTable(TableName.valueOf("test:t1"));
+        Scan scan = new Scan();
+        //切忌全表扫描，设置起始结束行
+        scan.setStartRow(Bytes.toBytes("row001"));
+        scan.setStopRow(Bytes.toBytes("row100"));
+        System.out.println(scan.getCaching());
+        scan.setCaching(10);
+
+        ResultScanner scanner = t.getScanner(scan);
+
+        Iterator<Result> it = scanner.iterator();
+        long start = System.currentTimeMillis();
+        int index = 0;
+        while (it.hasNext()) {
+            it.next().getRow();
+            //System.out.println(index ++);
+        }
+        System.out.println(System.currentTimeMillis() - start);
+        t.close();
+        conn.close();
     }
 
 }
