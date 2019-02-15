@@ -119,7 +119,8 @@ public class TestHbase {
         // 通过连接工厂创建连接
         Connection conn = ConnectionFactory.createConnection(conf);
 
-        HTable table = (HTable) conn.getTable(TableName.valueOf("test:t1"));
+//        HTable table = (HTable) conn.getTable(TableName.valueOf("test:t1"));
+        HTable table = (HTable) conn.getTable(TableName.valueOf("hive:user"));
 
         // 设置自动刷写为false
         table.setAutoFlush(false, false);
@@ -131,7 +132,7 @@ public class TestHbase {
 
         long start = System.currentTimeMillis();
 
-        for (int i = 1; i < 10000; i++) {
+        for (int i = 1; i < 100; i++) {
             String str = df.format(i);
             // Bytes.toBytes(）可以将任意类型转换成字节数组
             Put put = new Put(Bytes.toBytes("row" + str));
