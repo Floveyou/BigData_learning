@@ -13,7 +13,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="myhadoop" target="1.5" />
-      <module name="myhbase" target="1.5" />
+      <module name="myhbase" target="8" />
       <module name="myhive" target="1.5" />
     </bytecodeTargetLevel>
   </component>

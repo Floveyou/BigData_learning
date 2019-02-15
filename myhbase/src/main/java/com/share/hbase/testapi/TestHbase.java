@@ -7,6 +7,7 @@ import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.LinkedList;
 import java.util.List;
@@ -154,6 +155,52 @@ public class TestHbase {
 
         System.out.println(System.currentTimeMillis() - start);
 
+    }
+
+    /**
+     * 启动分线程执行批量插入
+     */
+    @Test
+    public void testBatchInsert2() throws Exception {
+        Configuration conf = HBaseConfiguration.create();
+        Connection conn = ConnectionFactory.createConnection(conf);
+        long start = System.currentTimeMillis();
+        Thread d1 = insertInThread(1, 30000);
+        Thread d2 = insertInThread(30000, 60000);
+        Thread d3 = insertInThread(60000, 100000);
+        d1.join();
+        d2.join();
+        d3.join();
+        System.out.println(System.currentTimeMillis() - start);
+    }
+
+    private static Thread insertInThread(final int start, final int end) {
+        Thread d = new Thread() {
+            public void run() {
+                try {
+                    Configuration conf = HBaseConfiguration.create();
+                    Connection conn = ConnectionFactory.createConnection(conf);
+                    HTable t = (HTable) conn.getTable(TableName.valueOf("test:t1"));
+                    //关闭自动清理缓冲区
+                    t.setAutoFlush(false);
+                    DecimalFormat df = new DecimalFormat("000000");
+                    for (int i = start; i <= end; i++) {
+                        Put put = new Put(Bytes.toBytes("row" + df.format(i)));
+                        put.setDurability(Durability.SKIP_WAL);
+                        put.addColumn(Bytes.toBytes("f1"), Bytes.toBytes("id"), Bytes.toBytes(i));
+                        put.addColumn(Bytes.toBytes("f1"), Bytes.toBytes("name"), Bytes.toBytes("tom" + i));
+                        put.addColumn(Bytes.toBytes("f1"), Bytes.toBytes("age"), Bytes.toBytes(i % 100));
+                        t.put(put);
+                    }
+                    t.close();
+                    conn.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+        d.start();
+        return d;
     }
 
     /**
