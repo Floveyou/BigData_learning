@@ -33,7 +33,6 @@ public class TestAddCopro {
         htd.addFamily(new HColumnDescriptor("f1"));
 
         admin.createTable(htd);
-
         admin.close();
         conn.close();
 
