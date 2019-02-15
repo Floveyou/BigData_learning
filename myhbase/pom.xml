@@ -23,6 +23,13 @@
             <version>4.12</version>
         </dependency>
 
+        <!-- 协处理器依赖 -->
+        <dependency>
+            <groupId>org.apache.hbase</groupId>
+            <artifactId>hbase-server</artifactId>
+            <version>1.2.6</version>
+        </dependency>
+
     </dependencies>
     
 </project>
