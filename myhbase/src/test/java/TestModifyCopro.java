@@ -68,7 +68,7 @@ public class TestModifyCopro {
 
         HTableDescriptor htd = new HTableDescriptor(table);
 
-        htd.addCoprocessor("com.share.hbase.weibo.Weibo", new Path("/myhbase1.jar"), 0, null);
+        htd.addCoprocessor("com.share.hbase.weibo.Weibo", new Path("/myhbase.jar"), 0, null);
 
         htd.addFamily(new HColumnDescriptor("f1"));
 

@@ -43,6 +43,6 @@ public class PutData {
     }
 
     public static void main(String[] args) {
-        putKV("a", "b");
+        putKV("c", "b");
     }
 }
