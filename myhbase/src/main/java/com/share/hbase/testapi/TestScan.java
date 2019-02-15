@@ -168,4 +168,23 @@ public class TestScan {
         conn.close();
     }
 
+    /**
+     * 批次查询
+     */
+    @Test
+    public void batchScan() throws IOException {
+        Configuration conf = HBaseConfiguration.create();
+        Connection conn = ConnectionFactory.createConnection(conf);
+        Table t = conn.getTable(TableName.valueOf("test:t1"));
+        Scan scan = new Scan();
+        scan.setBatch(0);
+        Iterator<Result> r = t.getScanner(scan).iterator();
+        while (r.hasNext()) {
+            r.next().getRow();
+            //System.out.println(index ++);
+        }
+        t.close();
+        conn.close();
+    }
+
 }
