@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/BigData_learning.iml" filepath="$PROJECT_DIR$/BigData_learning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/myflume/myflume.iml" filepath="$PROJECT_DIR$/myflume/myflume.iml" />
       <module fileurl="file://$PROJECT_DIR$/myhadoop/myhadoop.iml" filepath="$PROJECT_DIR$/myhadoop/myhadoop.iml" />
       <module fileurl="file://$PROJECT_DIR$/myhbase/myhbase.iml" filepath="$PROJECT_DIR$/myhbase/myhbase.iml" />
       <module fileurl="file://$PROJECT_DIR$/myhive/myhive.iml" filepath="$PROJECT_DIR$/myhive/myhive.iml" />

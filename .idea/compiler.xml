@@ -6,14 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="myflume" />
         <module name="myhadoop" />
         <module name="myhbase" />
         <module name="myhive" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="myflume" target="1.5" />
       <module name="myhadoop" target="1.5" />
-      <module name="myhbase" target="8" />
+      <module name="myhbase" target="6" />
       <module name="myhive" target="1.5" />
     </bytecodeTargetLevel>
   </component>
