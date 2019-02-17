@@ -28,8 +28,8 @@ public class MyInterceptor_Sample implements Interceptor {
     //拦截代码编写
     //给Event添加头部
     public Event intercept(Event event) {
-        Map<String,String> header = new HashMap<String, String>();
-        header.put("type",type);
+        Map<String, String> header = new HashMap<String, String>();
+        header.put("type", type);
         event.setHeaders(header);
         return event;
     }

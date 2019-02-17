@@ -80,18 +80,17 @@ public class MyInterceptor implements Interceptor {
      * 通过日志类型解析相应字段，并以\t作为分隔
      * 解析一次返回一个event
      * event中每行数据均为日志聚合体
-     *
-     *
-     *
-     [{\"createdAtMs\":1531404180000,\"errorBrief\":\"at cn.lift.dfdf.web.AbstractBaseController.validInbound(AbstractBaseController.java:72)\",\"errorDetail\":\"java.lang.NullPointerException at cn.lift.appIn.web.AbstractBaseController.validInbound(AbstractBaseController.java:72) at cn.lift.dfdf.web.AbstractBaseController.validInbound\"},
-     {\"createdAtMs\":1531394940000,\"errorBrief\":\"at cn.lift.dfdf.web.AbstractBaseController.validInbound(AbstractBaseController.java:72)\",\"errorDetail\":\"java.lang.NullPointerException at cn.lift.appIn.web.AbstractBaseController.validInbound(AbstractBaseController.java:72) at cn.lift.dfdf.web.AbstractBaseController.validInbound\"}
-     ]
-
-     1531404180000	at cn.lift.dfdf.web.AbstractBaseController.validInbound(AbstractBaseController.java:72)	java.lang.NullPointerException at cn.lift.appIn.web.AbstractBaseController.validInbound(AbstractBaseController.java:72) at cn.lift.dfdf.web.AbstractBaseController.validInbound
-
-     换行符作为分割，每一行一个event
-     1、将appErrorLogs从日志聚合体字段中拿出来
-
+     * <p>
+     * <p>
+     * <p>
+     * [{\"createdAtMs\":1531404180000,\"errorBrief\":\"at cn.lift.dfdf.web.AbstractBaseController.validInbound(AbstractBaseController.java:72)\",\"errorDetail\":\"java.lang.NullPointerException at cn.lift.appIn.web.AbstractBaseController.validInbound(AbstractBaseController.java:72) at cn.lift.dfdf.web.AbstractBaseController.validInbound\"},
+     * {\"createdAtMs\":1531394940000,\"errorBrief\":\"at cn.lift.dfdf.web.AbstractBaseController.validInbound(AbstractBaseController.java:72)\",\"errorDetail\":\"java.lang.NullPointerException at cn.lift.appIn.web.AbstractBaseController.validInbound(AbstractBaseController.java:72) at cn.lift.dfdf.web.AbstractBaseController.validInbound\"}
+     * ]
+     * <p>
+     * 1531404180000	at cn.lift.dfdf.web.AbstractBaseController.validInbound(AbstractBaseController.java:72)	java.lang.NullPointerException at cn.lift.appIn.web.AbstractBaseController.validInbound(AbstractBaseController.java:72) at cn.lift.dfdf.web.AbstractBaseController.validInbound
+     * <p>
+     * 换行符作为分割，每一行一个event
+     * 1、将appErrorLogs从日志聚合体字段中拿出来
      */
     public Event intercept(Event event) {
         String line = new String(event.getBody());
