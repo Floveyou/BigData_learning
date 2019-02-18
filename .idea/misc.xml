@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/myhive/pom.xml" />
         <option value="$PROJECT_DIR$/myhbase/pom.xml" />
         <option value="$PROJECT_DIR$/myflume/pom.xml" />
+        <option value="$PROJECT_DIR$/mykafka/pom.xml" />
       </list>
     </option>
   </component>

@@ -10,6 +10,7 @@
         <module name="myhadoop" />
         <module name="myhbase" />
         <module name="myhive" />
+        <module name="mykafka" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -17,6 +18,7 @@
       <module name="myhadoop" target="1.5" />
       <module name="myhbase" target="6" />
       <module name="myhive" target="1.5" />
+      <module name="mykafka" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
