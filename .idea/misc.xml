@@ -8,6 +8,7 @@
         <option value="$PROJECT_DIR$/myhbase/pom.xml" />
         <option value="$PROJECT_DIR$/myflume/pom.xml" />
         <option value="$PROJECT_DIR$/mykafka/pom.xml" />
+        <option value="$PROJECT_DIR$/myjava/pom.xml" />
       </list>
     </option>
   </component>
